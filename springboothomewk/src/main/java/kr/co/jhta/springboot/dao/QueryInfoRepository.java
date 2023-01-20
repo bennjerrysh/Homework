@@ -14,7 +14,7 @@ import javax.persistence.Query;
 @Repository
 public class QueryInfoRepository implements InfoRepository {
 
-    EntityManager em; //매핑된 엔티티사용
+    EntityManager em; //매핑된 엔티티사용 autowired사용해도되는데 연습... 생성자에 익숙해지기
 
     
     public QueryInfoRepository(EntityManager em) {

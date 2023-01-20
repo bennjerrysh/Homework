@@ -15,7 +15,7 @@ public class Speaker {
     
     private String name;
     private String party;
-
+//entity 실제 테이블과 매핑하기 때문에 dto와 따로 관리해야한다고함.. 테이블이라고 봐도 됨..
     @ManyToOne
     @JoinColumn(name ="press_id")
     private PressInfo pressInfo;
