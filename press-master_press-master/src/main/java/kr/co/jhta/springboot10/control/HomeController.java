@@ -34,7 +34,7 @@ public class HomeController {
 	public List<PressDTO> result(@RequestParam(value = "from_date",required = false)String from_date,
 			@RequestParam(value = "to_date",required = false)String to_date,
 			@RequestParam(value = "name",required = false)String name,
-			@RequestParam(value = "party",required = false)String party, Model model) {
+			@RequestParam(value = "party",required = false)String party) {
 
 		/*
 		 * model.addAttribute("from_date", from_date); model.addAttribute("to_date",
@@ -48,7 +48,6 @@ public class HomeController {
 		
 		
 		List<PressDTO> list = service.selectOne(from_date, to_date, name, party);
-//		model.addAttribute("list", list);
 		
 		return list;
 	}

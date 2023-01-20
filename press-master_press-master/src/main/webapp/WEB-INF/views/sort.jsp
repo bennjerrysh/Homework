@@ -73,16 +73,23 @@ $("#button").click(
             async: true,
             success: function(result) {
             	result = JSON.parse(result);
-            	for(let i=0; i<result.length;i++){
+            	$(document).ready( function() {
+                    $('#timeline').height(result.length*40);
+                  });
+            	/*for(let i=0; i<result.length;i++){
             		result[i]["year"] = result[i]["date"].split('-')[0];
-            	}
+            	} */
             	milestones('#timeline')
                 .mapping({
-                  'timestamp': 'year',
+                  'timestamp': 'date',
                   'text': 'title'
                 })
-                .parseTime('%Y')
-                .aggregateBy('year')
+                .parseTime('%Y-%m-%d')
+                .optimize(true)
+                .distribution('top-bottom')
+                .aggregateBy('day')
+                //.autoResize(true)
+                .orientation('vertical')
                 .render(result);
             }
         })
